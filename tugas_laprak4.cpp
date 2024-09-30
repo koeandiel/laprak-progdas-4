@@ -55,9 +55,11 @@ void displayMenu() {
     cout << "1. Tambah Nama\n";
     cout << "2. Tampilkan Nama\n";
     cout << "3. Cari Nama\n";
-    cout << "4. Keluar\n";
+    cout << "4. Hapus Nama\n"; // Tambahkan pilihan untuk hapus nama
+    cout << "5. Keluar\n";
     cout << "========================\n";
 }
+
 
 // Fungsi untuk mendapatkan pilihan dari pengguna
 int getUserChoice() {
