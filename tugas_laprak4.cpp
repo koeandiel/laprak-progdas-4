@@ -3,10 +3,6 @@
 #include <string>
 #include <limits> // Untuk std::numeric_limits
 
-// ==================================
-//===========KELOMPOK 14=============
-//===================================
-
 using namespace std;
 
 // Class untuk daftar nama
@@ -38,9 +34,9 @@ public:
         }
         return false; // Mengembalikan false jika nama tidak ditemukan
     }
-};
 
-void removeName(int index) {
+    // Method untuk menghapus nama berdasarkan indeks
+    void removeName(int index) {
         if (index >= 0 && index < names.size()) {
             cout << "Nama '" << names[index] << "' berhasil dihapus.\n";
             names.erase(names.begin() + index);
@@ -48,6 +44,7 @@ void removeName(int index) {
             cout << "Indeks tidak valid. Tidak ada nama yang dihapus.\n";
         }
     }
+};
 
 // Fungsi untuk menampilkan menu
 void displayMenu() {
@@ -59,7 +56,6 @@ void displayMenu() {
     cout << "5. Keluar\n";
     cout << "========================\n";
 }
-
 
 // Fungsi untuk mendapatkan pilihan dari pengguna
 int getUserChoice() {
@@ -109,7 +105,15 @@ void runNameListSystem() {
                     cout << "Nama '" << name << "' tidak ditemukan.\n";
                 }
                 break;
-            case 4:
+            case 4: { // Menambahkan kasus untuk menghapus nama
+                nameList.displayNames(); // Tampilkan nama sebelum menghapus
+                cout << "Masukkan nomor nama yang ingin dihapus: ";
+                int index;
+                cin >> index;
+                nameList.removeName(index - 1); // -1 karena indeks vector mulai dari 0
+                break;
+            }
+            case 5:
                 cout << "Keluar dari program.\n";
                 break;
             default:
@@ -119,7 +123,7 @@ void runNameListSystem() {
         // Menunggu input dari pengguna sebelum melanjutkan
         cout << "Tekan Enter untuk melanjutkan...";
         cin.get(); // Menunggu input dari pengguna
-    } while (choice != 4);
+    } while (choice != 5);
 }
 
 int main() {
