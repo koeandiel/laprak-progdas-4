@@ -40,6 +40,15 @@ public:
     }
 };
 
+void removeName(int index) {
+        if (index >= 0 && index < names.size()) {
+            cout << "Nama '" << names[index] << "' berhasil dihapus.\n";
+            names.erase(names.begin() + index);
+        } else {
+            cout << "Indeks tidak valid. Tidak ada nama yang dihapus.\n";
+        }
+    }
+
 // Fungsi untuk menampilkan menu
 void displayMenu() {
     cout << "=== Menu Daftar Nama ===\n";
